@@ -49,52 +49,11 @@ The target is to convert perimeter network device logs and events, regardless of
 
 Kafka, object storage, distributed workers, and lakehouse storage are part of the documented production scale-out design; they are not components of the current single-node prototype.
 
-## Run locally
-
-Requirements: Node.js 20.9 or newer and npm.
-
-```bash
-cd universal-log_ps/next
-npm install
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000). Choose **Watch live demo** for the guided showcase, or open **Parser Lab** to paste a log or upload a sample from `public/samples`.
-
-## Run with Docker
-
-```bash
-cd universal-log_ps/next
-docker build -t ulpf-sih-demo .
-docker run --rm -p 3000:3000 ulpf-sih-demo
-```
-
-The health endpoint is available at [http://localhost:3000/api/health](http://localhost:3000/api/health).
-
-## Verification
-
-Run these from `universal-log_ps/next`:
-
-```bash
-npm run typecheck
-npm run lint
-npm test
-npm run build
-npm run test:e2e
-```
-
 ## Documentation
 
-- [Research and differentiation](universal-log_ps/docs/RESEARCH.md)
-- [Architecture brief and production scale-out path](universal-log_ps/docs/ARCHITECTURE.md)
-- [Schema and traceability](universal-log_ps/docs/SCHEMA-AND-TRACEABILITY.md)
-- [Parser plugin guide](universal-log_ps/docs/PARSER-PLUGIN-GUIDE.md)
-- [SIH demo and presentation guide](universal-log_ps/docs/SIH-DEMO-GUIDE.md)
-- [Testing and scaling](universal-log_ps/docs/TESTING-AND-SCALING.md)
-
-## Current limitations
-
-- Ingestion is through pasted text or file upload; there is no live UDP/TCP listener yet.
-- Session history and custom manifests are stored locally in the browser and capped.
-- Integrity hashes can reveal unexpected modification, but do not prove who created an event; signer authenticity needs key management and signatures.
-- The implemented OCSF schema covers the perimeter-focused scenarios in this prototype, not every OCSF class.
+- [Research and differentiation](https://github.com/wrestle-R/SIH2026-ULPF/blob/main/universal-log_ps/docs/RESEARCH.md)
+- [Architecture brief and production scale-out path](https://github.com/wrestle-R/SIH2026-ULPF/blob/main/universal-log_ps/docs/ARCHITECTURE.md)
+- [Schema and traceability](https://github.com/wrestle-R/SIH2026-ULPF/blob/main/universal-log_ps/docs/SCHEMA-AND-TRACEABILITY.md)
+- [Parser plugin guide](https://github.com/wrestle-R/SIH2026-ULPF/blob/main/universal-log_ps/docs/PARSER-PLUGIN-GUIDE.md)
+- [SIH demo and presentation guide](https://github.com/wrestle-R/SIH2026-ULPF/blob/main/universal-log_ps/docs/SIH-DEMO-GUIDE.md)
+- [Testing and scaling](https://github.com/wrestle-R/SIH2026-ULPF/blob/main/universal-log_ps/docs/TESTING-AND-SCALING.md)
