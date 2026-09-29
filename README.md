@@ -5,6 +5,8 @@
 
 ULPF is a vendor-independent framework for turning perimeter network device logs into consistent, analytics-ready security events while retaining the original evidence for investigation and compliance.
 
+**[Try the live demo](https://sih-ulpf.vercel.app/)** · [Open the automatic demo walkthrough](https://sih-ulpf.vercel.app/demo)
+
 ## The problem
 
 Enterprises collect logs from network devices, servers, applications, cloud services, IoT systems, and security tools. These sources use formats such as Syslog, JSON, XML, CSV, CEF, LEEF, and vendor-specific schemas. The differences make centralized monitoring, SIEM integration, threat detection, and analytics harder, while lossy conversions can discard information needed for forensics.
@@ -48,6 +50,38 @@ The target is to convert perimeter network device logs and events, regardless of
 | Packaging | Docker |
 
 Kafka, object storage, distributed workers, and lakehouse storage are part of the documented production scale-out design; they are not components of the current single-node prototype.
+
+## Setup
+
+The web application requires Node.js 20.9 or newer.
+
+```bash
+cd universal-log_ps/next
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000), then select **Watch live demo** for the automatic walkthrough. You can also use **Parser Lab** to paste a log, upload a file, or try one of the samples in `public/samples`.
+
+### Verify the project
+
+```bash
+npm run typecheck
+npm run lint
+npm test
+npm run build
+npm run test:e2e
+```
+
+### Run with Docker
+
+```bash
+cd universal-log_ps/next
+docker build -t ulpf-sih-demo .
+docker run --rm -p 3000:3000 ulpf-sih-demo
+```
+
+The health endpoint is available at [http://localhost:3000/api/health](http://localhost:3000/api/health).
 
 ## Documentation
 
